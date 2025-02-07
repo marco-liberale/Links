@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marco Liberale's Links</title>
+  <style>
+    /* Universal Box-Sizing */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box; /* Ensures padding and borders are included in width/height */
+    }
+
+    /* General Styles */
+    html {
+      overflow-x: hidden; /* Prevents horizontal scrolling completely */
+    }
+
+    body {
+      font-family: 'Courier New', Courier, monospace;
+      background-color: #FFFFFF; /* White background */
+      color: #0241d4; /* Primary blue for text */
+      margin: 0;
+      padding: 0;
+      text-align: left;
+      font-size: clamp(14px, 2vw, 18px); /* Dynamically scales font size */
+    }
+
+    a {
+      text-decoration: none;
+      color: #0241d4;
+      transition: color 0.3s ease, text-shadow 0.3s ease; /* Blue links with smoother hover effects */
+    }
+
+    a:hover {
+      color: #0000FF; /* Brighter blue hover effect */
+      text-shadow: 0 0 5px #0241d4, 0 0 10px #0241d4;
+    }
+
+    /* Container */
+    .container {
+      width: 90%; /* Shrinks dynamically */
+      max-width: 800px; /* Caps the maximum width */
+      margin: 20px auto; /* Responsive spacing */
+      padding: clamp(10px, 2vw, 20px); /* Dynamic padding */
+      border: 2px solid #0241d4; /* Blue border for the main container */
+      box-shadow: 0 0 15px rgba(0, 56, 184, 0.2);
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    /* Logo Section */
+    .logo img {
+      max-width: 20vw; /* Scale logo according to viewport width */
+      max-height: 120px; /* Ensures the logo doesn't grow too large */
+      border: 2px solid #0241d4; /* Blue border around logo */
+      border-radius: 50%;
+      margin-bottom: clamp(10px, 2vw, 20px); /* Margin scales dynamically */
+    }
+
+    /* Typing Animation Section */
+    .typing-container {
+      font-size: clamp(1rem, 3vw, 2rem); /* Adjusted maximum font size */
+      line-height: 1.5; /* Maintain readable line spacing */
+      text-align: center; /* Center-align text */
+      white-space: nowrap; /* Prevent text wrapping */
+      margin-bottom: 20px;
+      max-width: 100%; /* Prevents overflowing from the container */
+      overflow: hidden; /* Ensures text stays within bounds */
+    }
+
+    .typing-effect {
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 2px solid #0241d4; /* Blue blinking cursor */
+      animation: typing 4s steps(30, end), blink-caret 0.75s step-end infinite;
+    }
+
+    /* Main Links */
+    .big-link {
+      padding: clamp(15px, 2vw, 20px);
+      margin: 20px 0;
+      border: 2px solid #0241d4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #E6F0FF; /* Soft blue background */
+      box-shadow: 0 0 15px rgba(0, 56, 184, 0.2);
+      animation: fadeGlow 2s alternate infinite ease-in-out;
+      transition: transform 0.2s;
+      flex-direction: column; /* Ensures stacking for smaller screens */
+    }
+
+    .big-link img {
+      max-width: 80%; /* Restrict logo width for smaller screens */
+      max-height: 150px;
+      filter: drop-shadow(0 0 10px rgba(0, 56, 184, 0.3));
+      margin-bottom: 10px;
+    }
+
+    .big-link:hover {
+      transform: translateY(-5px); /* Subtle hover effect */
+    }
+
+    /* Smaller Links */
+    .link {
+      padding: clamp(10px, 2vw, 15px); /* Scale padding dynamically */
+      margin: 10px 0;
+      border: 2px solid #0241d4;
+      display: block;
+      text-align: center;
+      background-color: #F8FAFF; /* Slightly off-white background */
+      color: #0241d4;
+      font-size: clamp(0.8rem, 2vw, 1rem); /* Dynamically scales font size */
+      transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 0 5px rgba(0, 56, 184, 0.15);
+    }
+
+    .link:hover {
+      transform: translateX(10px); /* Subtle slide hover effect */
+      background-color: #E6F0FF; /* Light blue background on hover */
+      box-shadow: 0 0 15px rgba(0, 56, 184, 0.3);
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 20px;
+      font-size: clamp(0.7rem, 2vw, 0.9rem); /* Dynamically scale font size */
+      color: #0241d4; /* Blue footer text */
+      text-align: center;
+      border-top: 1px solid #0241d4; /* Blue footer border */
+      padding-top: 10px;
+    }
+
+    .footer strong {
+      color: #0241d4;
+    }
+
+    /* Keyframes for Typing Animation */
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 33ch; } /* Stops precisely after 30 characters */
+    }
+
+    @keyframes blink-caret {
+      from, to { border-color: transparent; }
+      50% { border-color: #0241d4; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeGlow {
+      0% { box-shadow: 0 0 5px rgba(0, 56, 184, 0.2); }
+      100% { box-shadow: 0 0 15px rgba(0, 56, 184, 0.5); }
+    }
+
+    /* Media Queries */
+    @media (max-width: 768px) {
+      .big-link {
+        flex-direction: column;
+        padding: 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .big-link img {
+        margin-bottom: 10px;
+      }
+
+      .link {
+        padding: 10px;
+        font-size: 0.9em;
+      }
+
+      .container {
+        width: 95%;
+        margin: 10px auto;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <!-- Logo Section -->
+  <div class="logo">
+    <img src="ML.png" alt="Logo">
+  </div>
+
+  <!-- Typing Effect -->
+  <div class="typing-container">
+    <span class="typing-effect">Welcome to Marco Liberale's Links</span>
+  </div>
+
+  <!-- Big Link for Blog -->
+  <a href="https://www.890.blog/" class="big-link" target="_blank">
+    <img src="890.png" alt="890 Blog Logo">
+  </a>
+
+  <!-- Other Links -->
+  <a href="https://projects.ml.codes/" class="link" target="_blank">Projects</a>
+  <a href="https://www.linkedin.com/in/marco-liberale" class="link" target="_blank">LinkedIn</a>
+  <a href="https://donate.ml.codes/" class="link" target="_blank">Donate ❤️</a>
+  <a href="https://keybase.io/marcoliberale" class="link" target="_blank">Keybase</a>
+  <a href="https://mastodon.social/@marcoliberale" class="link" target="_blank">Mastodon</a>
+  <a href="https://libertycanary.ml.codes/" class="link" target="_blank">Liberty Canary</a>
+  <a href="https://keys.openpgp.org/search?q=marco%40marcoliberale.com" class="link" target="_blank">Public Key(s)</a>
+  <a href="https://github.com/marco-liberale" class="link" target="_blank">GitHub</a>
+  <a href="mailto:marco@marcoliberale.com" class="link" target="_blank">Email</a>
+  <a href="https://twitter.com/marco_liberale" class="link" target="_blank">Twitter</a>
+  <a href="https://hub.docker.com/u/marcoliberale" class="link" target="_blank">Docker Hub</a>
+
+  <!-- Footer -->
+  <div class="footer">
+    This page is <strong>FOSS</strong>. <br>
+    <a href="https://github.com/marco-liberale/Links" target="_blank">View on GitHub</a>
+  </div>
+</div>
+</body>
+</html>
